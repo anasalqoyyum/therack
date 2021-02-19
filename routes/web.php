@@ -57,4 +57,8 @@ Route::get('/user/order','OrderController@show')->name('order.show')->middleware
 Route::get('/profile/{user}/edit','ProfileController@edit')->name('profile.edit')->middleware('auth');
 Route::patch('/profile/{user}','ProfileController@update')->name('profile.update')->middleware('auth');
 
+Route::get('/blog','PostController@index');
+Route::post('/blog','PostController@store')->name('posts.store');
+// Route::get('/blog/{id}','PostController@show')->name('posts.show');
+
 Auth::routes();
