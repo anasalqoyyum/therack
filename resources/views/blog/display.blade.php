@@ -1,50 +1,28 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.app')
 
-<head>
-    <title>Use Summernote Editor In Laravel - Tutsmake.com</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-</head>
+@section ('content')
 
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div id="showimages"></div>
-            </div>
-            <div class="col-md-6 offset-3 mt-5">
-                <div class="card">
-                    <div class="card-header bg-info">
-                        <h6 class="text-white">Use Summernote Editor In Laravel - Tutsmake.com</h6>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>No.</th>
-                                <th>Title</th>
-                                <th>Description</th>
-                                <th>Action</th>
-                            </tr>
-                            @foreach ($post as $post)
-                            <tr>
-                                <td>{{ $post->id }}</td>
-                                <td>{{ $post->title }}</td>
-                                <td>{!! $post->description !!}</td>
-                                <td>
-                                    <a href="/blog/list/edit/{{ $post->id }}" class="btn btn-warning">Edit</a>
-                                    <a href="/blog/list/delete/{{ $post->id }}" class="btn btn-danger">Hapus</a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </table>
-                    </div>
-                </div>
-            </div>
+<h1 class="card-title text-center" style="font-weight: bold">Our Journal</h1>
+@foreach ($post as $post)
+<div class="container">
+    <div class="row content">
+        <div class="col-md-6 thumbnail">
+            <a href="{{ route('posts.detail',['id'=>$post->id]) }}"><img
+                    src="{{ asset('/thumbnail/'.$post->thumbnail) }}"
+                    alt="" class="rounded img-thumbnail mx-auto d-block" style="width: 75%; height:auto"/></a>
+        </div>
+        <div class="col-md-6">
+            <a href="{{ route('posts.detail',['id'=>$post->id]) }}">
+                <span>
+                    <h2 class="title">{{$post->title}}</h2>
+                    <p>{{substr($post->created_at, 0, 10)}}</p>
+                </span>
+                <p class="teaser-text">{!! substr($post->description, 0, 500) !!}</p>
+            </a>
         </div>
     </div>
-</body>
+</div>
+<div class="spacer-50"></div>
+@endforeach
 
-</html>
+@endsection

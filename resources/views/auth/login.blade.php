@@ -63,11 +63,11 @@
                         <div class=" row mb-0 mt-2">
                             <div class="col-12 offset-md-3">
                                 <a class="btn btn-link" href="{{ route('register') }}">Don't have an account? Sign up for free here!</a><br>
-                                @if (Route::has('password.request'))
+                                {{-- @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
-                                @endif
+                                @endif --}}
                                 
                             </div>
                         </div>

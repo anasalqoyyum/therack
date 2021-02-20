@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Rizs Florist - Flower Studio</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,8 +21,8 @@
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.css" rel="stylesheet">
     <link href="{{ asset('external-css/style.css') }}" rel="stylesheet">
-
 </head>
 
 <body>
@@ -43,28 +43,23 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <div class="d-flex">
-                            <a href="{{ route('product.index') }}" class="nav-link" style="color:#CC743F;">Layanan
-                                Produk</a>
-                        </div>
+                        <a href="{{ route('product.index') }}" class="nav-link">
+                            Produk</a>
                     </li>
                     <li class="nav-item">
-                        <div class="d-flex">
-                            <a href="{{ route('cart.index') }}" class="nav-link" style="color:#CC743F;">Cara
-                                Pemesanan</a>
-                        </div>
+                        <a href="{{ route('home.pesan') }}" class="nav-link">Cara
+                            Pemesanan</a>
                     </li>
                     <li class="nav-item">
-                        <div class="d-flex">
-                            <a href="{{ route('cart.index') }}" class="nav-link" style="color:#CC743F;">Tentang</a>
-                        </div>
+                        <a href="{{ route('posts.list') }}" class="nav-link">Journal</a>
                     </li>
                     <li class="nav-item">
-                        <div class="d-flex">
-                            <a href="{{ route('cart.index') }}" class="nav-link" style="color:#CC743F;">Kontak</a>
-                        </div>
+                        <a href="{{ route('home.tentang') }}" class="nav-link">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('home.kontak') }}" class="nav-link">Kontak Kami</a>
                     </li>
                 </ul>
 
@@ -126,7 +121,6 @@
     </main>
 
     </div>
-
     <footer>
         <div class='container-fluid footer'>
             <div class='container p-0 pt-3'>
@@ -141,8 +135,10 @@
                         <ul>
                             <li><a href='https://instagram.com/rizs_florist' target='_blank'>
                                     <i class="fa fa-instagram"></i></a></li>
-                            <li><a href='https://whatsapp.com/' target='_blank'>
+                            <li><a href='https://wa.me/089681197987' target='_blank'>
                                     <i class="fa fa-whatsapp"></i></a></li>
+                            <li><a href='http://line.me/ti/p/richaamalia' target='_blank'>
+                                    <i class="fab fa-line"></i></a></li>
                         </ul>
                     </div>
                     <div class='col-md-4 col-sm-12 pt-3'>
@@ -151,46 +147,77 @@
                         <p>Sign up for our newsletter.</p>
                         <div class='newsletter-form p-0'>
                             <form action='{{ route('newsletter.add') }}' method='post' id='newsletter-validate-detail'>
-                                @csrf
-                                <input type='email' name='email' id='newsletter-footer' class=''
-                                    placeholder='Enter your email'>
-                                <button type='submit' id='signup-newsletter-footer' class='button'>SIGN UP</button>
-                            </form>
-                        </div> --}}
-                    </div>
-                    <div class='col-12 divider-footer p-0'>
-                    </div>
-                    <div class='col-md-6 col-sm-12 copyright'>
-                        © 2021 Copyright:
-                        <a style="text-decoration: none;" href="https://rizsflorist.com/"> rizsflorist.com : We Love Our
-                            Customer </a> Made With Love
-                        From <a style="text-decoration: none;" href="https://www.instagram.com/sarafdesign.id/"> Saraf
-                            Design</a>
-                        {{-- <p>Designed from scratch by Sherwin Variancia</p>
+                        @csrf
+                        <input type='email' name='email' id='newsletter-footer' class='' placeholder='Enter your email'>
+                        <button type='submit' id='signup-newsletter-footer' class='button'>SIGN UP</button>
+                        </form>
+                    </div> --}}
+                </div>
+                <div class='col-12 divider-footer p-0'>
+                </div>
+                <div class='col-md-6 col-sm-12 copyright'>
+                    © 2021 Copyright:
+                    <a style="text-decoration: none;" href="https://rizsflorist.com/"> rizsflorist.com : We Love Our
+                        Customer </a> Made With Love
+                    From <a style="text-decoration: none;" href="https://www.instagram.com/sarafdesign.id/"> Saraf
+                        Design</a>
+                    {{-- <p>Designed from scratch by Sherwin Variancia</p>
                         <p>therack &copy; 2019. All Rights Reserved</p> --}}
-                    </div>
-                    {{-- <div class='col-md-6 col-sm-12 payment'> <img src="{{ asset('photo/cards.png') }}" alt=''> --}}
                 </div>
-                <div class='col-12 p-0 mt-3'>
-                </div>
-
+                {{-- <div class='col-md-6 col-sm-12 payment'> <img src="{{ asset('photo/cards.png') }}" alt=''> --}}
             </div>
+            <div class='col-12 p-0 mt-3'>
+            </div>
+
+        </div>
         </div>
         </div>
     </footer>
-
 </body>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+{{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-</script>
+</script> --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
 </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+<script src="https://kit.fontawesome.com/f40df03cb2.js" crossorigin="anonymous"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.js"></script>
+<script>
+    function deleteConfirm(url) {
+      $('#btn-delete').attr('href', url);
+      $('#deleteModal').modal();
+    }
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.summernote').summernote({
+            height: 300,
+        });
+    });
+</script>
+<!-- GetButton.io widget -->
+<script type="text/javascript">
+    (function () {
+        var options = {
+            whatsapp: "089681197987", // WhatsApp number
+            call_to_action: "Hubungi Kami", // Call to action
+            position: "right", // Position may be 'right' or 'left'
+        };
+        var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+        s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+        setTimeout(()=>{
+            var x = document.getElementsByClassName("sc-7dvmpp-1 fprIlH");
+            x[0].remove();
+        },2000)
+    })();
+</script>
+<!-- /GetButton.io widget -->
 @yield('script')
 <script>
     $(document).ready(function() {

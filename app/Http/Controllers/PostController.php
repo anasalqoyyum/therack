@@ -14,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('blog.create');
+        return view('admin.blogcreate');
     }
 
     /**
@@ -62,10 +62,17 @@ class PostController extends Controller
         $summernote->description = $description;
         $summernote->thumbnail = $nama_file;
         $summernote->save();
-        return redirect()->back();
+        // return redirect()->back();
+        return redirect()->route('admin.show')->with('success','Successfully added the journal!');
     }
 
     public function show()
+    {
+        $post = Post::all();
+        return view('admin.bloglist', compact('post'));
+    }
+
+    public function list()
     {
         $post = Post::all();
         return view('blog.display', compact('post'));
@@ -87,7 +94,7 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        return view('blog.edit', compact('post'));
+        return view('admin.blogedit', compact('post'));
     }
 
     public function update($id, Request $request)
@@ -124,6 +131,7 @@ class PostController extends Controller
         $summernote->description = $description;
         $summernote->thumbnail = $nama_file;
         $summernote->save();
-        return redirect()->back();
+        // return redirect()->back();
+        return redirect()->route('admin.show')->with('success','Successfully edited the journal!');
     }
 }

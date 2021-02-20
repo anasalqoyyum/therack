@@ -5,7 +5,7 @@
 <div class="col-12 col-md-12 col-sm-12 col-lg-10">
     <div class="card">
         <div class="card-header">
-            <h5>ORDER LIST</h5>
+            <h5>DAFTAR ORDER</h5>
         </div>
         <div class="card-body">
             <ul class="list-group">

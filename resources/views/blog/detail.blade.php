@@ -1,43 +1,21 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.app')
 
-<head>
-    <title>Use Summernote Editor In Laravel - Tutsmake.com</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-</head>
+@section ('content')
 
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div id="showimages"></div>
-            </div>
-            <div class="col-md-6 offset-3 mt-5">
-                <div class="card">
-                    <div class="card-header bg-info">
-                        <h6 class="text-white">Use Summernote Editor In Laravel - Tutsmake.com</h6>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>No.</th>
-                                <th>Title</th>
-                                <th>Description</th>
-                            </tr>
-                            <tr>
-                                <td>{{ $post->id }}</td>
-                                <td>{{ $post->title }}</td>
-                                <td>{!! $post->description !!}</td>
-                            </tr>
-                        </table>
-                    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-2 mt-3">
+            <a href="{{route('posts.list')}}" class="kembali"><i class="fas fa-arrow-left kembali"></i>
+                Kembali</a>
+            <div class="card">
+                <img class="card-img-top" src="{{ asset('/thumbnail/'.$post->thumbnail) }}" alt="Card image cap">
+                <div class="card-body">
+                    <h2 class="card-title">{{$post->title}}</h2>
+                    <p>{{$post->created_at}}</p>
+                    <p class="card-text">{!! $post->description !!}</p>
                 </div>
             </div>
         </div>
     </div>
-</body>
-
-</html>
+</div>
+@endsection

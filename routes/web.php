@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('home.index');
+Route::get('/pesan','HomeController@pesan')->name('home.pesan');
+Route::get('/tentang','HomeController@tentang')->name('home.tentang');
+Route::get('/kontak','HomeController@kontak')->name('home.kontak');
+
 Route::post('/susbcribe', 'NewsletterController@add')->name('newsletter.add');
 
 Route::get('/dashboard', 'AdminController@index')->name('admin.index')->middleware(['auth','admin']);
@@ -57,12 +61,13 @@ Route::get('/user/order','OrderController@show')->name('order.show')->middleware
 Route::get('/profile/{user}/edit','ProfileController@edit')->name('profile.edit')->middleware('auth');
 Route::patch('/profile/{user}','ProfileController@update')->name('profile.update')->middleware('auth');
 
-Route::get('/blog','PostController@index');
-Route::post('/blog','PostController@store')->name('posts.store');
-Route::get('/blog/list','PostController@show')->name('posts.show');
-Route::get('/blog/list/{id}','PostController@detail')->name('posts.detail');
-Route::get('/blog/list/delete/{id}', 'PostController@delete');
-Route::get('/blog/list/edit/{id}', 'PostController@edit');
-Route::post('/blog/list/edit/{id}', 'PostController@update')->name('posts.edit');
+Route::get('/admin-journal/add','PostController@index')->name('admin.add')->middleware('auth');
+Route::post('/admin-journal/add','PostController@store')->name('posts.store')->middleware('auth');
+Route::get('/admin-journal','PostController@show')->name('admin.show')->middleware('auth');
+Route::get('/journal','PostController@list')->name('posts.list');
+Route::get('/journal/{id}','PostController@detail')->name('posts.detail');
+Route::get('/admin-journal/delete/{id}', 'PostController@delete')->name('posts.delete')->middleware('auth');
+Route::get('/admin-journal/edit/{id}', 'PostController@edit')->name('posts.edit')->middleware('auth');
+Route::post('/admin-journal/edit/{id}', 'PostController@update')->name('posts.edit')->middleware('auth');
 
 Auth::routes();
