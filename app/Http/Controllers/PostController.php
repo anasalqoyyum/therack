@@ -30,56 +30,100 @@ class PostController extends Controller
 
             'title' => 'required',
 
-            'description' => 'required'
+            'description' => 'required',
+
+            'thumbnail' => 'required'
 
         ]);
 
-
         $description = $request->description;
-
         $dom = new \DomDocument();
-
         $dom->loadHtml($description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-
         $images = $dom->getElementsByTagName('img');
-
+        $file = $request->thumbnail;
+        $list_gambar = $file->getClientOriginalName();
+        $nama_file = time() . "_" . $file->getClientOriginalName();
         foreach ($images as $k => $img) {
-
-
             $data = $img->getAttribute('src');
-
             list($type, $data) = explode(';', $data);
-
             list($type, $data) = explode(',', $data);
-
             $data = base64_decode($data);
-
-            $image_name = "\upload" . time() . $k . '.png';
-
+            $image_name = "/upload/" . $k . $list_gambar;
             $path = public_path() . $image_name;
-
             file_put_contents($path, $data);
-
             $img->removeAttribute('src');
-
             $img->setAttribute('src', $image_name);
         }
-
-
+        $tujuan_upload = 'thumbnail';
+        $file->move($tujuan_upload, $nama_file);
         $description = $dom->saveHTML();
-
         $summernote = new Post;
-
         $summernote->title = $request->title;
-
         $summernote->description = $description;
-
+        $summernote->thumbnail = $nama_file;
         $summernote->save();
+        return redirect()->back();
+    }
 
+    public function show()
+    {
+        $post = Post::all();
+        return view('blog.display', compact('post'));
+    }
 
+    public function detail($id)
+    {
+        $post = Post::find($id);
+        return view('blog.detail', compact('post'));
+    }
 
-        // echo "<h1>Title</h1>", $Title;
+    public function delete($id)
+    {
+        $post = Post::find($id);
+        $post->delete();
+        return redirect()->back();
+    }
 
-        // echo "<h2>Description</h2>", $description;
+    public function edit($id)
+    {
+        $post = Post::find($id);
+        return view('blog.edit', compact('post'));
+    }
+
+    public function update($id, Request $request)
+    {
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'thumbnail' => 'required'
+        ]);
+
+        $description = $request->description;
+        $dom = new \DomDocument();
+        $dom->loadHtml($description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $images = $dom->getElementsByTagName('img');
+        $file = $request->thumbnail;
+        $list_gambar = $file->getClientOriginalName();
+        $nama_file = time() . "_" . $file->getClientOriginalName();
+        foreach ($images as $k => $img) {
+            $data = $img->getAttribute('src');
+            list($type, $data) = explode(';', $data);
+            list($type, $data) = explode(',', $data);
+            $data = base64_decode($data);
+            $image_name = "/upload/" . $k . $list_gambar;
+            $path = public_path() . $image_name;
+            file_put_contents($path, $data);
+            $img->removeAttribute('src');
+            $img->setAttribute('src', $image_name);
+        }
+        $tujuan_upload = 'thumbnail';
+        $file->move($tujuan_upload, $nama_file);
+        $description = $dom->saveHTML();
+        $summernote = Post::find($id);
+        $summernote->title = $request->title;
+        $summernote->description = $description;
+        $summernote->thumbnail = $nama_file;
+        $summernote->save();
+        return redirect()->back();
     }
 }

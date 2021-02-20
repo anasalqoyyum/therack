@@ -18,20 +18,20 @@
                         <h6 class="text-white">Laravel Summernote Image Upload Example</h6>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('posts.store') }}"
+                        <form method="post" action="/blog/list/edit/{{ $post->id }}"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Title</label>
-                                <input type="text" name="title" class="form-control" />
+                                <input type="text" name="title" class="form-control" value="{{ $post->title }}" />
                             </div>
                             <div class="form-group">
                                 <label>Thumbnail</label>
-                                <input type="file" name="thumbnail">
+                                <input type="file" name="thumbnail" value="{{ $post->thumbnail }}">
                             </div>
                             <div class="form-group">
                                 <label><strong>Description :</strong></label>
-                                <textarea class="summernote" name="description"></textarea>
+                                <textarea class="summernote" name="description">{!! $post->description !!}</textarea>
                             </div>
                             <div class="form-group text-center">
                                 <button type="submit" class="btn btn-success btn-sm">Save</button>

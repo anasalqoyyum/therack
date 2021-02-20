@@ -59,6 +59,10 @@ Route::patch('/profile/{user}','ProfileController@update')->name('profile.update
 
 Route::get('/blog','PostController@index');
 Route::post('/blog','PostController@store')->name('posts.store');
-// Route::get('/blog/{id}','PostController@show')->name('posts.show');
+Route::get('/blog/list','PostController@show')->name('posts.show');
+Route::get('/blog/list/{id}','PostController@detail')->name('posts.detail');
+Route::get('/blog/list/delete/{id}', 'PostController@delete');
+Route::get('/blog/list/edit/{id}', 'PostController@edit');
+Route::post('/blog/list/edit/{id}', 'PostController@update')->name('posts.edit');
 
 Auth::routes();

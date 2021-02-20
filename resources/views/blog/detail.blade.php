@@ -26,19 +26,12 @@
                                 <th>No.</th>
                                 <th>Title</th>
                                 <th>Description</th>
-                                <th>Action</th>
                             </tr>
-                            @foreach ($post as $post)
                             <tr>
                                 <td>{{ $post->id }}</td>
                                 <td>{{ $post->title }}</td>
                                 <td>{!! $post->description !!}</td>
-                                <td>
-                                    <a href="/blog/list/edit/{{ $post->id }}" class="btn btn-warning">Edit</a>
-                                    <a href="/blog/list/delete/{{ $post->id }}" class="btn btn-danger">Hapus</a>
-                                </td>
                             </tr>
-                            @endforeach
                         </table>
                     </div>
                 </div>
