@@ -13,11 +13,11 @@
                 <div class="row ">
                     
                     <div class="col-12">
-                        <h5>SHIPPING DETAILS</h5>
+                        <h5>Detail Pengiriman</h5>
                     </div>
 
                     <div class="col-12">
-                        <label for="name" class="">{{ __('Name') }}</label>
+                        <label for="name" class="">{{ __('Nama') }}</label>
                         <div class="form-group">
                             <div>
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ?? $user->name ??'' }}" required autocomplete="name" autofocus>
@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="col-12">
-                        <label for="phonenumber" class="">{{ __('Phone Number') }}</label>
+                        <label for="phonenumber" class="">{{ __('Nomor Handphone') }}</label>
                         <div class="form-group">
                             <div>
                                 <input id="phonenumber" type="text" class="form-control @error('phonenumber') is-invalid @enderror" name="phonenumber" value="{{ old('phonenumber') ?? $user->profile->phonenumber ??'' }}" required autocomplete="phonenumber" autofocus>
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="col-12">
-                        <label for="country" class="">{{ __('Country') }}</label>
+                        <label for="country" class="">{{ __('Provinsi') }}</label>
                         <div class="form-group">
                             <div>
                                 <input id="country" type="text" class="form-control @error('country') is-invalid @enderror" name="country" value="{{ old('country') ?? $user->profile->country ??'' }}" required autocomplete="country" autofocus>
@@ -59,7 +59,7 @@
                     </div>
 
                     <div class="col-12">
-                        <label for="city" class="">{{ __('City') }}</label>
+                        <label for="city" class="">{{ __('Kabupaten atau Kota') }}</label>
                         <div class="form-group">
                             <div>
                                 <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') ?? $user->profile->city ??'' }}" required autocomplete="city" autofocus>
@@ -73,7 +73,7 @@
                     </div>
 
                     <div class="col-12">
-                        <label for="address" class="">{{ __('Address') }}</label>
+                        <label for="address" class="">{{ __('Alamat Lengkap') }}</label>
                         <div class="form-group">
                             <div>
                                 <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') ?? $user->profile->address ??'' }}" required autocomplete="address" autofocus>
@@ -87,7 +87,7 @@
                     </div>
 
                     <div class="col-12">
-                        <label for="zipcode" class="">{{ __('Zipcode') }}</label>
+                        <label for="zipcode" class="">{{ __('Kode Pos') }}</label>
                         <div class="form-group">
                             <div>
                                 <input id="zipcode" type="text" class="form-control @error('zipcode') is-invalid @enderror" name="zipcode" value="{{ old('zipcode') ?? $user->profile->zipcode ??'' }}" required autocomplete="zipcode" autofocus>
@@ -100,7 +100,7 @@
                         </div>
                     </div>
 
-                    <div class="col-12">
+                    {{-- <div class="col-12">
                         <hr>
                         <h5>BILLING ADDRESS</h5>
                     </div>
@@ -161,7 +161,7 @@
                                 @enderror
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
 
                 </div>

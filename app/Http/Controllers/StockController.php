@@ -54,7 +54,7 @@ class StockController extends Controller
             {
                 $output='
                 <div class="col-lg-4 col-md-6 col-sm-6 pt-3">
-                    <h4>No Size Found</h4>
+                    <h4>Belum ada Data</h4>
                 </div>
                 ';
             }

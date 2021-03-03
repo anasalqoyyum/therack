@@ -27,7 +27,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar sticky-top navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <div class="d-flex">
@@ -142,7 +142,7 @@
                         </ul>
                     </div>
                     <div class='col-md-4 col-sm-12 pt-3'>
-                        <img src="{{ asset('photo/logo.png') }}" style="height:130px;" alt="">
+                        <img src="{{ asset('photo/logo.png') }}" style="height:130px; width:auto" alt="">
                         {{-- <h3>Newsletter</h3>
                         <p>Sign up for our newsletter.</p>
                         <div class='newsletter-form p-0'>

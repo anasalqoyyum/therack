@@ -33,10 +33,6 @@ class CheckoutController extends Controller
             'city' => 'required|string',
             'address' => 'required',
             'zipcode' => 'required|digits:5',
-            'creditcardnumber' => 'required|digits:16',
-            'expiremonth' => 'required|digits:2',
-            'expireyear' => 'required|digits:2',
-            'cvc' => 'required|digits:3',
         ]);
         
         if(!Session::has('cart')){
@@ -64,6 +60,6 @@ class CheckoutController extends Controller
         Auth::user()->orders()->save($order);
 
         Session::forget('cart');
-        return redirect()->route('home.index')->with('success','Successfully purchased the products!');
+        return redirect()->route('home.index')->with('success','Pembelian Anda Telah Sukses! Silahkan Konfirmasi Pesanan Anda Melalui WhatsApp');
     }
 }

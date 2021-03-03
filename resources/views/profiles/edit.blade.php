@@ -12,7 +12,7 @@
                 <h3 class="offset-md-5">Edit Profile</h3>
                 <hr>
                 <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name:') }}</label>
+                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nama:') }}</label>
 
                     <div class="col-md-6">
                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -28,7 +28,7 @@
 
                 <div class="form-group row">
                     <label for="phonenumber"
-                        class="col-md-4 col-form-label text-md-right">{{ __('Phone Number:') }}</label>
+                        class="col-md-4 col-form-label text-md-right">{{ __('Nomor Handphone:') }}</label>
 
                     <div class="col-md-6">
                         <input id="phonenumber" type="text"
@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('Country:') }}</label>
+                    <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('Provinsi:') }}</label>
 
                     <div class="col-md-6">
                         <input id="country" type="text" class="form-control @error('country') is-invalid @enderror"
@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City:') }}</label>
+                    <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('Kota atau Kabupaten:') }}</label>
 
                     <div class="col-md-6">
                         <input id="city" type="text" class="form-control @error('city') is-invalid @enderror"
@@ -77,7 +77,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address:') }}</label>
+                    <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Alamat Lengkap:') }}</label>
 
                     <div class="col-md-6">
                         <input id="address" type="text" class="form-control @error('address') is-invalid @enderror"
@@ -93,7 +93,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="zipcode" class="col-md-4 col-form-label text-md-right">{{ __('Zipcode:') }}</label>
+                    <label for="zipcode" class="col-md-4 col-form-label text-md-right">{{ __('Kode Pos:') }}</label>
 
                     <div class="col-md-6">
                         <input id="zipcode" type="text" class="form-control @error('zipcode') is-invalid @enderror"

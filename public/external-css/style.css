@@ -600,6 +600,77 @@ a.disabled {
     margin-bottom: 0.4rem;
 }
 
+.admin-navigation {
+    text-decoration: none;
+    color: black;
+}
+
+.admin-navigation:hover {
+    text-decoration: none;
+    color: var(--hover-color);
+}
+
+.navbar .nav-item .nav-link {
+    color: #000000;
+}
+
+.navbar .nav-item:hover .nav-link {
+    color: rgb(255, 197, 72);
+}
+
+.summary {
+    border: solid 1px #ddd;
+    padding: 25px;
+    background: #fff;
+    box-shadow: 0 0 0.5;
+}
+
+.summary .title {
+    display: block;
+    padding: 0 0 15px 0;
+}
+
+.title {
+    color: #000000 !important;
+}
+
+.summary .teaser-text {
+    padding: 0 0 15px 0;
+}
+
+.thumbnail {
+    border: none;
+}
+
+.content {
+    padding: 30px;
+    box-shadow: 0px 1px 2px rgba(50, 50, 50, 0.1),
+        0px 2px 4px rgba(60, 60, 60, 0.1);
+    border-radius: 5px;
+}
+
+.spacer-50 {
+    margin: 50px 0;
+}
+
+.kembali {
+    color: #e5a958 !important;
+    margin-bottom: 5%;
+}
+
+.carousel-inner > .item > img {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: none;
+    height: auto;
+}
+
+.carousel .item {
+    height: auto;
+    background-color: #777;
+}
 /*Media Query*/
 @media screen and (max-width: 576px) {
     .promo-info {
@@ -746,74 +817,4 @@ a.disabled {
         margin-top: 0.6rem;
         margin-bottom: 0.6rem;
     }
-}
-
-.admin-navigation {
-    text-decoration: none;
-    color: black;
-}
-
-.admin-navigation:hover {
-    text-decoration: none;
-    color: var(--hover-color);
-}
-
-.navbar .nav-item .nav-link {
-    color: #000000;
-}
-
-.navbar .nav-item:hover .nav-link {
-    color: rgb(255, 197, 72);
-}
-
-.summary {
-    border: solid 1px #ddd;
-    padding: 25px;
-    background: #fff;
-    box-shadow: 0 0 0.5;
-}
-
-.summary .title {
-    display: block;
-    padding: 0 0 15px 0;
-}
-
-.title {
-    color: #000000 !important;
-}
-
-.summary .teaser-text {
-    padding: 0 0 15px 0;
-}
-
-.thumbnail {
-    border: none;
-}
-
-.content {
-    padding: 30px;
-    box-shadow: 0px 1px 2px rgba(50, 50, 50, 0.1),
-        0px 2px 4px rgba(60, 60, 60, 0.1);
-    border-radius: 5px;
-}
-
-.spacer-50 {
-    margin: 50px 0;
-}
-
-.kembali {
-    color: #e5a958 !important;
-    margin-bottom: 5%;
-}
-
-@media screen and (max-width: 992px) and (min-width: 769px) {
-}
-
-@media only screen and (max-width: 1200px) and (min-width: 993px) {
-}
-
-@media screen and (max-width: 1392px) {
-}
-
-@media screen and (max-height: 600px) {
 }

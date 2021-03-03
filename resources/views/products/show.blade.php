@@ -14,11 +14,11 @@
                 <div class="card-body">
                     <div class="show-info">
                         <div class="info-1">
-                            <h6>BUY NEW</h6>
+                            <h6>Beli</h6>
                         </div>
                         <div class="info-2">
                             <select id="size-dropdown">
-                                <option selected="true" value="nothing" disabled hidden>Choose size</option>
+                                <option selected="true" value="nothing" disabled hidden>Pilih Variasi</option>
                                 @foreach($sizes as $size)
                                     @if($size->quantity > 0)
                                         <option value="{{ $size->name }}">{{ $size->name }}</option>
@@ -27,12 +27,12 @@
                             </select>
                         </div>
                         <div class="info-3">
-                            <p>This product is pre-verified, and will be ready to ship instantly. Expedited shipping options will be available in checkout.
+                            <p>Produk ini siap untuk dikirim.
                             </p>
                         </div>
                         <a href="{{ route('cart.add',['product'=>$product->id]) }}" id="add-to-cart" class="add-to-cart disabled">
                             <div class="info-4">
-                                ADD TO CART
+                                Tambahkan ke Keranjang
                             </div>
                         </a>
                     </div>

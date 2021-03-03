@@ -5,7 +5,7 @@
     @if(Session::has('cart') && $totalQuantity >0)
         <div class="container p-0 filled-cart">
             <div class="mr-2 ml-2">
-                <h3>YOUR CART</h3>
+                <h3>KERANJANG KAMU</h3>
                 <hr> 
             </div>
            
@@ -20,8 +20,8 @@
                                 </div>
                                 <div class="item-detail mr-auto d-flex flex-column justify-content-center">
                                     <div class="info-2"><h5>{{ $product['item']['name'] }}</h5> </div> 
-                                    <div class="info-3"><h6>Size: {{ $product['size'] }}</h6></div>
-                                    <div class="info-4"><h6>Quantity: {{ $product['quantity'] }}</h6></div>
+                                    <div class="info-3"><h6>Variasi: {{ $product['size'] }}</h6></div>
+                                    <div class="info-4"><h6>Jumlah: {{ $product['quantity'] }}</h6></div>
                                     <div class="info-5">
                                         <a href="{{ route('cart.remove',['id'=>key($products)]) }}" class="remove-cart">
                                             <i class="fa fa-trash"></i> 
@@ -29,7 +29,7 @@
                                     </div>
                                 </div>
 
-                                <div class="item-quantity">RM {{ $product['price'] }}</div>
+                                <div class="item-quantity">Rp {{ $product['price'] }}</div>
                             </div>
                         @endforeach
                     </div>
@@ -42,17 +42,17 @@
                         <div class="card-body">
                             <div class="cart-checkout">
                                 <div class="info-1">
-                                    SUMMARY
+                                    RINGKASAN
                                 </div>
                                 <hr>
                                 <div class="info-2">
-                                    TOTAL: RM {{ $totalPrice }}
+                                    TOTAL: Rp {{ $totalPrice }}
                                 </div>
                                 <div class="info-3 pt-3">
                                     <a href="{{ route('checkout.index') }}"><button class="button-primary w-100">CHECKOUT</button></a>
                                 </div>
                                 <div class="info-4 pt-3">
-                                    <a href="{{ route('product.index') }}"><button class="button w-100">CONTINUE SHOPPING</button></a>
+                                    <a href="{{ route('product.index') }}"><button class="button w-100">LANJUTKAN BELANJA</button></a>
                                 </div>
                             </div>
                         </div>
@@ -66,8 +66,8 @@
         <div class="row">
             <div class="col-12 d-flex flex-column justify-content-center align-items-center empty-cart">
                 <div><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
-                <div><h4><b>Your cart is empty.</b></h4></div>
-                <div><a href="{{ route('product.index') }}">Go get some shoes first :)</a></div>
+                <div><h4><b>Keranjangmu masih kosong.</b></h4></div>
+                <div><a href="{{ route('product.index') }}">Silahkan pilih produk kami terlebih dahulu</a></div>
             </div>
         </div>
     </div>
